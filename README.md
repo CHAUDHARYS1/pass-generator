@@ -4,9 +4,9 @@
 
 Create an application that an employee can use to generate a random password based on criteria they’ve selected. List of required task below.
 
-- [ ] Clean and polished user interface.
-- [ ] Responsive - adapting to multiple screen sizes.
-- [ ] Generated password include special characters.
+- [x] Clean and polished user interface.
+- [x] Responsive - adapting to multiple screen sizes.
+- [x] Generated password include special characters.
 
 ### User Story
 
