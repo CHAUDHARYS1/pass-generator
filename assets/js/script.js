@@ -19,14 +19,14 @@ generateBtn.addEventListener("click", writePassword);
 
 // genratePassword () function starts here
 function generatePassword() {
-  var passwordChars = "";
+  var passwordCharacters = "";
   var passwordLength = "";
 
   // set all criteria's to false until user says true
-  var optionLowerCase = false,
-    optionUpperCase = false,
-    optionNumeric = false,
-    optionSpecialCharacters = false;
+  var lowerCaseOption = false,
+    upperCaseOption = false,
+    numericOption = false,
+    specialCharactersOption = false;
 
   // ask users the length of password
   passwordLength = prompt(
@@ -36,19 +36,19 @@ function generatePassword() {
   // verify password length
   if (passwordLength >= 8 && passwordLength <= 128) {
     // prompt that asks user the way they would to have their passwords generated
-    optionLowerCase = confirm("Do you want lowercase letters?");
-    optionUpperCase = confirm("Do you want uppercase letters?");
-    optionNumeric = confirm("Do you want numbers?");
-    optionSpecialCharacters = confirm("Do you want special characters?");
+    lowerCaseOption = confirm("Do you want lowercase letters?");
+    upperCaseOption = confirm("Do you want uppercase letters?");
+    numericOption = confirm("Do you want numbers?");
+    specialCharactersOption = confirm("Do you want special characters?");
 
     // confirm at least one chacter type has been chosen
     if (
-      optionLowerCase ||
-      optionUpperCase ||
-      optionNumeric ||
-      optionSpecialCharacters
+      lowerCaseOption ||
+      upperCaseOption ||
+      numericOption ||
+      specialCharactersOption
     ) {
-      return passwordChars = createPassword(passwordLength, [optionLowerCase, optionUpperCase, optionNumeric, optionSpecialCharacters]);
+      return passwordCharacters = buildPassword(passwordLength, [lowerCaseOption, upperCaseOption, numericOption, specialCharactersOption]);
 
     } else {
       // if not, let user know to select one
@@ -60,7 +60,7 @@ function generatePassword() {
   }
 }
 
-function createPassword(pLength, pOptions) {
+function buildPassword(pLength, pOptions) {
   var generatedPassword = "";
   const LOWERCASE_SET = "abcdefghijklmnopqrstuvwxyz";
   const UPPERCASE_SET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -72,7 +72,7 @@ function createPassword(pLength, pOptions) {
     do {
       randomSet = Math.floor(Math.random() * pOptions.length);
     } while (!pOptions[randomSet]);
-
+    // switch case for each varities
     switch (randomSet) {
       case 0:
         generatedPassword +=
